@@ -44,7 +44,7 @@ Sub StartTest()
     clicks = 0
     running = True
     startTime = Timer
-    btn.innerText = "CLIQUE !"
+    btn.innerText = "CLICK !"
 End Sub
 
 Sub ClickButton()
@@ -52,7 +52,7 @@ Sub ClickButton()
         clicks = clicks + 1
         If Timer - startTime >= 5 Then
             running = False
-            btn.innerText = "Recommencer"
+            btn.innerText = "Retry"
             MsgBox "Temps : 5 secondes" & vbCrLf & _
                    "Clics : " & clicks & vbCrLf & _
                    "CPS : " & Round(clicks / 5, 2)
@@ -65,11 +65,11 @@ End Sub
 </head>
 
 <body>
-<h1>TEST CPS (5 secondes)</h1>
-<p>Clique le plus vite possible !</p>
+<h1CPS Test (5 seconds)</h1>
+<p>Click as fast as possible !!</p>
 
 <button id="btn" onclick="ClickButton()">
-D marrer
+Start
 </button>
 
 </body>
