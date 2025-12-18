@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<title>CPS Test</title>
+
+<hta:application
+    applicationname="CPS Test"
+    border="thin"
+    caption="yes"
+    showintaskbar="yes"
+    singleinstance="yes"
+    windowstate="normal"
+    scroll="no"
+/>
+
+<style>
+body {
+    background-color: #ffffff;
+    color: black;
+    font-family: Arial;
+    text-align: center;
+}
+button {
+    height: 100px;
+    width: 100px;    
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: rgb(0, 20, 255);
+    color: white;
+    border: none;
+}
+button:hover {
+    height: 110px;
+    width: 110px;
+    margin-top: 15px;
+}
+
+</style>
+
+<script language="VBScript">
+Dim clicks, running, startTime
+
+Sub StartTest()
+    clicks = 0
+    running = True
+    startTime = Timer
+    btn.innerText = "CLIQUE !"
+End Sub
+
+Sub ClickButton()
+    If running Then
+        clicks = clicks + 1
+        If Timer - startTime >= 5 Then
+            running = False
+            btn.innerText = "Recommencer"
+            MsgBox "Temps : 5 secondes" & vbCrLf & _
+                   "Clics : " & clicks & vbCrLf & _
+                   "CPS : " & Round(clicks / 5, 2)
+        End If
+    Else
+        StartTest
+    End If
+End Sub
+</script>
+</head>
+
+<body>
+<h1>TEST CPS (5 secondes)</h1>
+<p>Clique le plus vite possible !</p>
+
+<button id="btn" onclick="ClickButton()">
+D marrer
+</button>
+
+</body>
+</html>
